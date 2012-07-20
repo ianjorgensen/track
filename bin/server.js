@@ -34,7 +34,7 @@ server.get('/data', function(request, response) {
 	podio.biomarkers(respond(response));
 });
 
-server.listen(8080);
+server.listen(port);
 
 console.log('server running on port',port);
 
