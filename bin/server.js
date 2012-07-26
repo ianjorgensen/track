@@ -14,11 +14,13 @@ var respond = function(request, response) {
 		}
 
 		if (request.query.callback) {
-			data = common.format('{0}({1});', request.query.callback, data);
+			data = common.format('{0}({1});', request.query.callback, JSON.stringify(data, null, '\t'));
+		} else {
+			data  = JSON.stringify(data, null, '\t')
 		};
 
 		response.writeHead(statusCode, {'content-type':'application/json'});
-		response.end(JSON.stringify(data, null, '\t'));
+		response.end(data);
 	}
 }
 
